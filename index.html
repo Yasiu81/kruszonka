@@ -309,6 +309,13 @@ p{margin:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .intro-strip{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;padding-top:clamp(56px,8vw,110px)}
 @media (max-width:640px){.intro-strip{grid-template-columns:1fr}}
+/* --- brak zdjęcia / jeden rozmiar --- */
+.ci-ph{width:72px;height:72px;border-radius:6px;background:repeating-linear-gradient(135deg,#F2E9DB 0 8px,#EEE3D3 8px 9px);outline:1px dashed var(--line);outline-offset:-5px}
+.card-media{position:relative}
+.ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px;background:repeating-linear-gradient(135deg,#F2E9DB 0 14px,#EEE3D3 14px 15px);color:var(--ink-2);outline:1.5px dashed var(--line);outline-offset:-14px}
+.ph span{font:500 15px var(--f-mono);text-transform:uppercase;letter-spacing:.08em}
+.one-size{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.one-size b{font:400 22px var(--f-display)}.one-size span{color:var(--ink-2);flex:1}.one-size em{font:400 26px var(--f-display);font-style:normal}
 /* --- logo w łuku --- */
 .arch-media{background:linear-gradient(#E6DAC8,#D8CAB8)}
 .arch-media img{object-position:50% 0%}
@@ -488,29 +495,43 @@ p{margin:0}
 <script>
 (() => {
 const FORMS = {
-  tortownica: { label:'Tortownica', unit:'kawałek', sizes:[{l:'Ø 18 cm',p:'6–8 porcji',c:89},{l:'Ø 22 cm',p:'10–12 porcji',c:119},{l:'Ø 26 cm',p:'14–16 porcji',c:159}] },
-  blacha:     { label:'Blacha', unit:'kawałek', sizes:[{l:'½ blachy',p:'12 kawałków',c:95},{l:'Cała blacha',p:'24 kawałki · 25×36 cm',c:179}] },
-  pucharki:   { label:'Pucharki', unit:'pucharek', sizes:[{l:'4 pucharki',p:'po 150 g',c:56},{l:'6 pucharków',p:'po 150 g',c:82},{l:'12 pucharków',p:'po 150 g',c:156}] }
+  M: { label:'Blacha 30 × 25 cm', unit:'sztuka', sizes:[{l:'Blacha 30 × 25 cm',p:'całe ciasto'}] },
+  D: { label:'Blacha 36 × 25 cm', unit:'sztuka', sizes:[{l:'Blacha 36 × 25 cm',p:'całe ciasto'}] },
+  O: { label:'Okrągłe Ø 26 cm', unit:'sztuka', sizes:[{l:'Okrągłe Ø 26 cm',p:'całe ciasto'}] },
+  P: { label:'Deserek 115 ml', unit:'deserek', sizes:[{l:'Pojemnik 115 ml',p:'1 porcja'}] }
 };
 const FLAV = ['Słodycz','Kwasowość','Kremowość','Intensywność','Gorycz / palenie'];
 const CAKES = [
- {id:'truskawki',name:'Sernik z truskawkami',cat:'serniki',img:['sernik_truskaw'],form:'tortownica',adj:0,lead:2,line:'Pieczony sernik z twarogu na kruchym spodzie, truskawki w lekkim żelu.',layers:['Kruchy spód maślany','Sernik pieczony','Truskawki w żelu'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[268,14.9,8.6,18.4,0.31],g:140,f:[3,3,4,2,1]},
- {id:'borowka',name:'Sernik z borówką',cat:'serniki',img:['sernik_borowka'],form:'tortownica',adj:0,lead:2,line:'Kruchy spód, borówki zapieczone w twarogu i maślana kruszonka.',layers:['Kruchy spód','Borówki','Sernik pieczony','Kruszonka maślana'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[295,16.8,9.9,19.8,0.34],g:140,f:[3,2,4,3,1]},
- {id:'brzoskwinia',name:'Sernik brzoskwiniowy z bezą',cat:'serniki',img:['sernik_brzoskw'],form:'blacha',adj:6,lead:2,line:'Sernik z kawałkami brzoskwini pod puszystą bezą i kruszonką.',layers:['Kruchy spód','Sernik z brzoskwinią','Beza','Kruszonka'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[288,13.2,7.8,23.1,0.29],g:150,f:[4,2,3,2,1]},
- {id:'rabarbar',name:'Rabarbar i biała czekolada',cat:'serniki',img:['rabarbar'],form:'tortownica',adj:10,lead:2,line:'Kwaśny rabarbar pod kremowym sernikiem, z polewą z białej czekolady.',layers:['Spód ciasteczkowy','Rabarbar duszony','Sernik','Polewa z białej czekolady'],al:['gluten','jaja','mleko'],may:['orzechy','soja'],n:[312,18.1,11.2,24.6,0.27],g:140,f:[4,4,4,3,1]},
- {id:'pszczolka',name:'Pszczółka',cat:'ciasta',img:['pszczolka2','pszczolka'],form:'blacha',adj:0,lead:2,line:'Kakaowy biszkopt, lekki mus śmietankowo-serowy i galaretka z brzoskwini.',layers:['Biszkopt kakaowy','Mus śmietankowo-serowy','Galaretka brzoskwiniowa'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[236,12.4,7.6,21.2,0.18],g:130,f:[3,2,5,2,2]},
- {id:'malinowa',name:'Malinowa',cat:'ciasta',img:['malinowa'],form:'blacha',adj:4,lead:2,line:'Kruchy spód, maliny w galaretce, krem śmietankowy i chrupiąca beza.',layers:['Kruchy spód','Maliny w galaretce','Krem śmietankowy','Beza'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[254,12.0,7.1,24.9,0.16],g:140,f:[4,4,3,3,1]},
- {id:'jagoda',name:'Jagoda pod bezą',cat:'ciasta',img:['sernik_jagoda'],form:'tortownica',adj:-4,lead:2,line:'Kruche ciasto, gęsta warstwa jagód i wysoka beza z przypieczonym wierzchem.',layers:['Kruche ciasto','Jagody','Beza'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[279,11.4,6.8,27.3,0.21],g:140,f:[4,3,2,3,2]},
- {id:'galaretka',name:'Galaretka (witraż)',cat:'ciasta',img:['galaretka'],form:'tortownica',adj:-14,lead:1,line:'Kolorowe kostki galaretki zatopione w kremie śmietankowym.',layers:['Krem śmietankowy','Kostki galaretek owocowych'],al:['mleko'],may:[],n:[186,8.3,5.4,19.7,0.08],g:130,f:[4,2,4,2,1]},
- {id:'pannacotta',name:'Panna cotta mango–malina',cat:'desery',img:['panna_cotta'],form:'pucharki',adj:0,lead:1,line:'Waniliowa panna cotta, cienka warstwa malin i mus z mango.',layers:['Panna cotta waniliowa','Żel malinowy','Mus z mango'],al:['mleko'],may:[],n:[198,11.8,7.9,17.6,0.06],g:150,f:[3,3,5,3,1]},
- {id:'karmel',name:'Deserek karmelowy',cat:'desery',img:['deserek'],form:'pucharki',adj:0,lead:1,line:'Kruszonka z ciasteczek korzennych, krem serowy i galaretka karmelowa.',layers:['Kruszonka korzenna','Krem serowy','Galaretka karmelowa'],al:['gluten','mleko'],may:['orzechy'],n:[245,13.6,8.5,22.4,0.22],g:150,f:[4,1,4,4,2]}
+ {id:'brzoskwinia',name:'Sernik z brzoskwiniami',cat:'serniki',img:['sernik_brzoskw'],form:'M',price:140,lead:2,line:'Sernik z kawałkami brzoskwini pod puszystą bezą i kruszonką.',layers:['Kruchy spód','Sernik z brzoskwinią','Beza','Kruszonka'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[288,13.2,7.8,23.1,0.29],g:150,f:[4,2,3,2,1]},
+ {id:'biala',name:'Sernik z białą czekoladą i owocami',cat:'serniki',img:['rabarbar', 'sernik_truskaw'],form:'O',price:170,lead:2},
+ {id:'jagoda',name:'Sernik z borówkami',cat:'serniki',img:['sernik_jagoda'],form:'O',price:160,lead:2},
+ {id:'borowka',name:'Sernik z borówkami i kruszonką',cat:'serniki',img:['sernik_borowka'],form:'O',price:160,lead:2,line:'Kruchy spód, borówki zapieczone w twarogu i maślana kruszonka.',layers:['Kruchy spód','Borówki','Sernik pieczony','Kruszonka maślana'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[295,16.8,9.9,19.8,0.34],g:140,f:[3,2,4,3,1]},
+ {id:'pomaranczowy',name:'Sernik pomarańczowy',cat:'serniki',img:[],form:'O',price:160,lead:2},
+ {id:'baskijski_owoce',name:'Sernik baskijski z owocami lub pistacjowy',cat:'serniki',img:[],form:'O',price:180,lead:2},
+ {id:'baskijski',name:'Sernik baskijski',cat:'serniki',img:[],form:'O',price:160,lead:2},
+ {id:'krolewski',name:'Sernik królewski',cat:'serniki',img:[],form:'M',price:150,lead:2},
+ {id:'skubany',name:'Sernik skubany',cat:'serniki',img:['skubany'],form:'M',price:150,lead:2},
+ {id:'gotowany',name:'Sernik gotowany',cat:'serniki',img:[],form:'M',price:150,lead:2},
+ {id:'rosa',name:'Sernik rosa',cat:'serniki',img:['sernik_rosa'],form:'M',price:150,lead:2},
+ {id:'seromakowiec',name:'Seromakowiec',cat:'serniki',img:[],form:'M',price:150,lead:2},
+ {id:'pszczolka',name:'Pszczółka',cat:'ciasta',img:['pszczolka2', 'pszczolka'],form:'M',price:150,lead:2,line:'Kakaowy biszkopt, lekki mus śmietankowo-serowy i galaretka z brzoskwini.',layers:['Biszkopt kakaowy','Mus śmietankowo-serowy','Galaretka brzoskwiniowa'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[236,12.4,7.6,21.2,0.18],g:130,f:[3,2,5,2,2]},
+ {id:'malinowa',name:'Malinowa chmurka',cat:'ciasta',img:['malinowa'],form:'M',price:170,lead:2,line:'Kruchy spód, maliny w galaretce, krem śmietankowy i chrupiąca beza.',layers:['Kruchy spód','Maliny w galaretce','Krem śmietankowy','Beza'],al:['gluten','jaja','mleko'],may:['orzechy'],n:[254,12.0,7.1,24.9,0.16],g:140,f:[4,4,3,3,1]},
+ {id:'szarlotka',name:'Szarlotka pod pierzynką',cat:'ciasta',img:['szarlotka'],form:'M',price:130,lead:2},
+ {id:'plesniak',name:'Pleśniak',cat:'ciasta',img:['plesniak'],form:'M',price:120,lead:2},
+ {id:'lesny',name:'Leśny mech',cat:'ciasta',img:[],form:'M',price:150,lead:2},
+ {id:'tarta',name:'Tarta cytrynowa',cat:'ciasta',img:[],form:'O',price:150,lead:2},
+ {id:'galaretka',name:'Galaretkowiec witraż',cat:'ciasta',img:['galaretka'],form:'O',price:100,lead:1,line:'Kolorowe kostki galaretki zatopione w kremie śmietankowym.',layers:['Krem śmietankowy','Kostki galaretek owocowych'],al:['mleko'],may:[],n:[186,8.3,5.4,19.7,0.08],g:130,f:[4,2,4,2,1]},
+ {id:'mini',name:'Deserek miniserniczek mango',cat:'desery',img:['deserek'],form:'P',price:10,lead:1},
+ {id:'pcmango',name:'Deserek panna cotta mango',cat:'desery',img:['panna_cotta'],form:'P',price:10,lead:1},
+ {id:'pctruskawka',name:'Deserek panna cotta truskawka',cat:'desery',img:[],form:'P',price:10,lead:1},
+ {id:'princessa',name:'Deserek princessa',cat:'desery',img:['princessa'],form:'P',price:10,lead:1},
 ];
 const CATS = [['wszystkie','Wszystkie'],['serniki','Serniki'],['ciasta','Ciasta'],['desery','Desery']];
 const $ = s => document.querySelector(s);
 const img = n => `img/${n}.webp`;
 const zl = v => `${v.toLocaleString('pl-PL')} zł`;
 const num = (v,d=1) => v.toLocaleString('pl-PL',{minimumFractionDigits:d,maximumFractionDigits:d});
-const price = (c,i) => FORMS[c.form].sizes[i].c + c.adj;
+const price = c => c.price;
 const leadTxt = d => d===1 ? '1 dzień' : `${d} dni`;
 const plural = (n,a,b,c) => n===1?a:(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?b:c);
 const WD = ['nd','pn','wt','śr','cz','pt','sb'];
@@ -527,19 +548,18 @@ function renderFilters(){
 function renderGrid(){
   const list = CAKES.filter(c => filter==='wszystkie' || c.cat===filter);
   $('#grid').innerHTML = list.map((c,i) => {
-        const s = FORMS[c.form].sizes;
     return `<article class="card" tabindex="0" role="button" data-id="${c.id}" aria-label="${c.name} — otwórz kartę ciasta">
-      <div class="card-media"><img src="${img(c.img[0])}" alt="${c.name}" loading="lazy" decoding="async">
-        <div class="peek" aria-hidden="true">
+      <div class="card-media">${c.img.length?`<img src="${img(c.img[0])}" alt="${c.name}" loading="lazy" decoding="async">`:`<div class="ph"><span>Miejsce na zdjęcie</span></div>`}
+        ${c.n?`<div class="peek" aria-hidden="true">
           <div><div class="k">Energia</div><div class="v">${c.n[0]}<small>kcal</small></div></div>
           <div><div class="k">Cukry</div><div class="v">${num(c.n[3])}<small>g</small></div></div>
           <div><div class="k">Tłuszcz</div><div class="v">${num(c.n[1])}<small>g</small></div></div>
           <div class="fl">${c.f.slice(0,3).map((v,j)=>`<div class="bar">${FLAV[j]}<i style="--v:${v*20}%"></i></div>`).join('')}</div>
           <div class="al"><b>${c.al.join(' · ').toUpperCase()}</b><span>na 100 g · gotowe za ${leadTxt(c.lead)}</span></div>
-        </div>
+        </div>`:''}
       </div>
-      <div class="card-meta"><h3>${c.name}</h3><span class="price">od ${zl(price(c,0))}</span><p>${c.line}</p>
-        <div class="tags"><span class="mono">${FORMS[c.form].label} · ${s.length} ${plural(s.length,'rozmiar','rozmiary','rozmiarów')}</span><span class="mono">Alergeny: ${c.al.join(', ')}</span></div></div>
+      <div class="card-meta"><h3>${c.name}</h3><span class="price">${zl(c.price)}${c.form==='P'?' / szt.':''}</span>${c.line?`<p>${c.line}</p>`:''}
+        <div class="tags"><span class="mono">${FORMS[c.form].label}</span>${c.al?`<span class="mono">Alergeny: ${c.al.join(', ')}</span>`:''}</div></div>
     </article>`;
   }).join('');
 }
@@ -578,25 +598,25 @@ function openSheet(id){
   const per = v => v*c.g/100;
   $('#pCat').textContent = `${F.label} · ${CATS.find(x=>x[0]===c.cat)[1]}`;
   $('#pBody').innerHTML = `
-    <div><div class="p-media"><img id="pImg" src="${img(c.img[0])}" alt="${c.name}"><span class="badge360">Wideo 360° · wkrótce</span></div>
+    <div><div class="p-media">${c.img.length?`<img id="pImg" src="${img(c.img[0])}" alt="${c.name}"><span class="badge360">Wideo 360° · wkrótce</span>`:`<div class="ph" style="position:relative;aspect-ratio:4/3"><span>Miejsce na zdjęcie</span></div>`}</div>
       ${c.img.length>1?`<div class="p-thumbs">${c.img.map((n,i)=>`<button type="button" id="th-${i}" data-th="${n}" aria-pressed="${i===0}" aria-label="Zdjęcie ${i+1}"><img src="${img(n)}" alt=""></button>`).join('')}</div>`:''}</div>
-    <div><h2 class="p-name" id="pName">${c.name}</h2><p class="p-line">${c.line}</p></div>
-    <div class="blk"><h4>Rozmiar</h4><div class="sizes" id="sizes">${F.sizes.map((s,i)=>`<button class="size" type="button" id="sz-${i}" data-s="${i}" aria-pressed="${i===0}"><b>${s.l}</b><span>${s.p}</span><em>${zl(price(c,i))}</em></button>`).join('')}</div>
+    <div><h2 class="p-name" id="pName">${c.name}</h2>${c.line?`<p class="p-line">${c.line}</p>`:''}</div>
+    <div class="blk"><h4>Rozmiar i cena</h4><p class="one-size"><b>${F.sizes[0].l}</b><span>${F.sizes[0].p}</span><em>${zl(c.price)}</em></p>
       <p class="lead" style="margin-top:14px">Potrzebujemy ${leadTxt(c.lead)} · najbliższy odbiór: ${firstFree(c.lead)}</p></div>
-    <div class="blk"><h4>Warstwy, od spodu</h4><ul class="layers">${c.layers.map(l=>`<li>${l}</li>`).join('')}</ul></div>
-    <div class="blk"><h4>Profil smakowy</h4><div class="prof">${c.f.map((v,j)=>`<div class="bar">${FLAV[j]}<i style="--v:${v*20}%"></i><span>${v}/5</span></div>`).join('')}</div></div>
-    <div class="blk"><h4>Wartości odżywcze</h4>
+    ${c.layers?`<div class="blk"><h4>Warstwy, od spodu</h4><ul class="layers">${c.layers.map(l=>`<li>${l}</li>`).join('')}</ul></div>`:''}
+    ${c.f?`<div class="blk"><h4>Profil smakowy</h4><div class="prof">${c.f.map((v,j)=>`<div class="bar">${FLAV[j]}<i style="--v:${v*20}%"></i><span>${v}/5</span></div>`).join('')}</div></div>`:''}
+    ${c.n?`<div class="blk"><h4>Wartości odżywcze</h4>
       <div style="overflow-x:auto"><table class="nut"><thead><tr><th></th><th>100 g</th><th>1 ${F.unit} (${c.g} g)</th></tr></thead><tbody>
         <tr><td>Energia</td><td>${kj(c.n[0])} kJ / ${c.n[0]} kcal</td><td>${kj(per(c.n[0]))} kJ / ${Math.round(per(c.n[0]))} kcal</td></tr>
         <tr><td>Tłuszcz</td><td>${num(c.n[1])} g</td><td>${num(per(c.n[1]))} g</td></tr>
         <tr><td class="sub">w tym kwasy nasycone</td><td>${num(c.n[2])} g</td><td>${num(per(c.n[2]))} g</td></tr>
         <tr><td>Cukry</td><td>${num(c.n[3])} g</td><td>${num(per(c.n[3]))} g</td></tr>
         <tr><td>Sól</td><td>${num(c.n[4],2)} g</td><td>${num(per(c.n[4]),2)} g</td></tr>
-      </tbody></table></div></div>
-    <div class="blk"><h4>Alergeny</h4><div class="algs">${c.al.map(a=>`<span class="alg">${a}</span>`).join('')}</div>
-      ${c.may.length?`<p class="may">Może zawierać: ${c.may.join(', ')}.</p>`:''}</div>
+      </tbody></table></div></div>`:''}
+    ${c.al?`<div class="blk"><h4>Alergeny</h4><div class="algs">${c.al.map(a=>`<span class="alg">${a}</span>`).join('')}</div>
+      ${c.may.length?`<p class="may">Może zawierać: ${c.may.join(', ')}.</p>`:''}</div>`:'<div class="blk"><h4>Alergeny i skład</h4><p>Skład i alergeny uzupełnimy wkrótce.</p></div>'}
     <div class="blk"><h4>Przechowywanie</h4><p>W lodówce, 2–6°C. Najlepsze w ciągu 3 dni od odbioru.</p></div>
-    <p class="note">Ceny, skład i wartości odżywcze są przykładowe. Prawdziwe dane wyliczymy z receptur.</p>`;
+    <p class="note">Ceny i rozmiary są ustalone. Skład, alergeny i wartości odżywcze (jeśli są podane) są jeszcze przykładowe.</p>`;
   updateTotal();
   openLayer($('#sheet'));
   $('#sheet .d-body').scrollTop = 0;
@@ -607,12 +627,12 @@ $('#pBody').addEventListener('click', e => {
 });
 function updateTotal(){ $('#qty').textContent = qty; $('#pTotal').textContent = zl(price(cur,sizeI)*qty); }
 $('#qMinus').onclick = () => { qty = Math.max(1,qty-1); updateTotal(); };
-$('#qPlus').onclick = () => { qty = Math.min(9,qty+1); updateTotal(); };
+$('#qPlus').onclick = () => { qty = Math.min(cur.form==='P'?30:9,qty+1); updateTotal(); };
 $('#addBtn').onclick = () => {
   const ex = cart.find(x => x.id===cur.id && x.s===sizeI);
   ex ? ex.q += qty : cart.push({id:cur.id,s:sizeI,q:qty});
   updateCount(); closeLayer(); selDay = null; selSlot = null;
-  showToast(`Dodano: ${cur.name}, ${FORMS[cur.form].sizes[sizeI].l}`);
+  showToast(`Dodano: ${cur.name}`);
 };
 
 let toastT;
@@ -680,7 +700,7 @@ function renderCart(){
   if(selDay!==null && !['free','last'].includes(days[selDay].st)) selDay = null;
   const sum = cart.reduce((a,x)=>a+price(CAKES.find(c=>c.id===x.id),x.s)*x.q,0);
   body.innerHTML = `
-    <div style="display:grid;gap:16px">${cart.map((x,i)=>{ const c = CAKES.find(k=>k.id===x.id); return `<div class="ci"><img src="${img(c.img[0])}" alt=""><div><b>${c.name}</b><span>${FORMS[c.form].sizes[x.s].l} · ${x.q} szt.</span><br><button class="rm" type="button" data-rm="${i}">Usuń</button></div><span class="pr">${zl(price(c,x.s)*x.q)}</span></div>`; }).join('')}</div>
+    <div style="display:grid;gap:16px">${cart.map((x,i)=>{ const c = CAKES.find(k=>k.id===x.id); return `<div class="ci">${c.img.length?`<img src="${img(c.img[0])}" alt="">`:`<div class="ci-ph"></div>`}<div><b>${c.name}</b><span>${FORMS[c.form].sizes[x.s].l} · ${x.q} szt.</span><br><button class="rm" type="button" data-rm="${i}">Usuń</button></div><span class="pr">${zl(price(c,x.s)*x.q)}</span></div>`; }).join('')}</div>
     <div class="blk"><h4>Termin zamówienia i odbioru</h4>
       <div class="dates"><div><span class="mono">Data zamówienia</span><b>${WD[new Date().getDay()]}. ${dd(new Date())}</b></div><div><span class="mono">Data odbioru</span><b>${selDay!==null?`${WD[days[selDay].d.getDay()]}. ${dd(days[selDay].d)}`:'wybierz w kalendarzu'}</b></div></div>
       ${calHTML(days)}
