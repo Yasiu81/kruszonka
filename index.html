@@ -396,7 +396,8 @@ p{margin:0}
     <p class="triad"><span>Domowa.</span><span>Sezonowa.</span><span>Na zamówienie.</span></p>
     <div class="hours">
       <span class="mono">Odbiór w pracowni</span>
-      <b>Wtorek – sobota<br>10:00 – 18:00</b>
+      <b>Pon. – pt. 16:00 – 20:00<br>Sob. – niedz. 10:00 – 20:00</b>
+      <span class="mono">Godziny po uprzednim ustaleniu</span>
       <span class="mono" id="nextFree">Najbliższy termin: —</span>
     </div>
   </section>
@@ -404,7 +405,7 @@ p{margin:0}
   <section class="sec wrap" id="wyroby">
     <div class="sec-head">
       <div><span class="mono eyebrow">Nasze wyroby</span><h2>Trzy rodzaje,<br><em>jedna zasada</em></h2></div>
-      <p>Każde ciasto robimy na konkretny dzień, nie na półkę. Wybierz rodzaj, a potem rozmiar i termin odbioru.</p>
+      <p>Nasze wypieki powstają na konkretne zamówienie, dzięki czemu każde ciasto przygotowujemy z myślą o osobie, która będzie się nim delektować. Nie pieczemy na zapas – stawiamy na świeżość, indywidualne podejście i jakość.</p>
     </div>
     <div class="cats">
       <a class="cat" href="#galeria" data-cat="serniki"><img src="img/sernik_truskaw.webp" alt="" loading="lazy"><div class="cat-t"><span class="mono" data-count="serniki"></span><h3>Serniki</h3><span class="lnk">Zobacz serniki</span></div></a>
@@ -416,7 +417,7 @@ p{margin:0}
   <section class="sec wrap" id="galeria" style="padding-top:0">
     <div class="sec-head">
       <div><span class="mono eyebrow">Wybierz ciasto</span><h2>Karta <em>wyrobów</em></h2></div>
-      <p>Najedź na ciasto, żeby zobaczyć kalorie, cukier i alergeny. Kliknij lub dotknij, żeby wybrać rozmiar i dodać je do zamówienia.</p>
+      <p>Najedź na ciasto, żeby zobaczyć kalorie, cukier i alergeny.</p>
     </div>
     <div class="filters" role="group" aria-label="Filtruj wyroby" id="filters"></div>
     <div class="grid" id="grid"></div>
@@ -426,8 +427,9 @@ p{margin:0}
     <div class="about">
       <div>
         <span class="mono eyebrow">Pracownia</span>
-        <h2>Krótkie serie, <em>długie przygotowania</em></h2>
-        <p>Pieczemy w domowej pracowni, kilka ciast dziennie. Twaróg, masło i owoce kupujemy pod konkretne zamówienia, więc ciasto, które odbierasz, powstało dla Ciebie dzień lub dwa wcześniej.</p>
+        <h2>Domowe wypieki <em>tworzone z sercem</em></h2>
+        <p>Witamy w miejscu, w którym tradycyjne smaki spotykają się z pasją do pieczenia.</p>
+        <p>Tworzymy domowe ciasta i desery, przygotowywane z dbałością o każdy szczegół, starannie dobranych składników i przede wszystkim – z sercem.</p>
         <p>Masz alergię albo potrzebujesz innego rozmiaru? Napisz przed zamówieniem. Pełny skład każdego ciasta znajdziesz w jego karcie.</p>
         <span class="sig" aria-hidden="true">Kruszonka</span>
       </div>
@@ -462,10 +464,10 @@ p{margin:0}
       <span class="mono" id="nextFree2">Najbliższy termin: —</span>
     </div>
     <div class="foot-cols">
-      <div><h4>Odbiór</h4><p>Wtorek – sobota<br>10:00 – 18:00</p></div>
-      <div><h4>Adres pracowni</h4><p>Adres podamy tutaj<br><span class="todo">do uzupełnienia</span></p></div>
-      <div><h4>Kontakt</h4><p>Telefon i e-mail<br><span class="todo">do uzupełnienia</span></p></div>
-      <div><h4>Zamówienia</h4><p>Ciasta: min. 2 dni wcześniej<br>Desery: min. 1 dzień wcześniej<br>Zamówienia do 14:00</p></div>
+      <div><h4>Odbiór</h4><p>Pon. – pt.: 16:00 – 20:00<br>Sob. – niedz.: 10:00 – 20:00<br>Godziny po uprzednim ustaleniu</p></div>
+      <div><h4>Adres pracowni</h4><p>ul. Cicha 4<br>83-000 Pruszcz Gdański</p></div>
+      <div><h4>Kontakt</h4><p>Telefon: <a href="tel:+48510739445">510-739-445</a></p></div>
+      <div><h4>Zamówienia</h4><p>Ciasta i desery: min. 3 dni wcześniej<br>Przyjmujemy zamówienia: pon. – sob. 10:00 – 20:00, niedz. 12:00 – 20:00</p></div>
     </div>
     <div class="foot-legal"><span>© 2026 Pracownia Kruszonka</span><span>Alergeny · Regulamin · Polityka prywatności</span></div>
   </div>
@@ -490,7 +492,7 @@ p{margin:0}
 
 <div class="toast" id="toast" role="status" aria-live="polite"><span id="toastTxt"></span><button type="button" data-open-cart>Zamówienie</button></div>
 
-<div class="chat" id="chat"><div class="chat-panel" id="chatPanel" hidden><b style="font:italic 400 24px var(--f-display)">Masz pytanie?</b><p>Napisz do nas — odpowiadamy w godzinach pracy pracowni.</p><a class="pill" id="chWa" target="_blank" rel="noopener" href="#">WhatsApp</a><a class="pill ghost" id="chSms" href="#">SMS</a></div><button class="pill" id="chatBtn" type="button" aria-expanded="false">Napisz do nas</button></div>
+<div class="chat" id="chat"><div class="chat-panel" id="chatPanel" hidden><b style="font:italic 400 24px var(--f-display)">Masz pytanie?</b><p>Napisz do nas — odpowiadamy pon. – sob. 10:00 – 20:00, niedz. 12:00 – 20:00.</p><a class="pill" id="chWa" target="_blank" rel="noopener" href="#">WhatsApp</a><a class="pill ghost" id="chSms" href="#">SMS</a></div><button class="pill" id="chatBtn" type="button" aria-expanded="false">Napisz do nas</button></div>
 <script src="ustawienia.js"></script>
 <script>
 (() => {
@@ -502,29 +504,27 @@ const FORMS = {
 };
 const FLAV = ['Słodycz','Kwasowość','Kremowość','Intensywność','Gorycz / palenie'];
 const CAKES = [
- {id:'brzoskwinia',name:'Sernik z brzoskwiniami',cat:'serniki',img:['sernik_brzoskw'],form:'M',price:140,lead:2,line:'Sernik z kawałkami brzoskwini pod puszystą bezą i kruszonką.',layers:['Kruchy spód','Sernik z brzoskwinią','Beza','Kruszonka'],al:['gluten','jaja','mleko'],may:[],n:[289,13,35,20,8],f:[4,2,3,2,1]},
- {id:'biala',name:'Sernik z białą czekoladą i owocami',cat:'serniki',img:['rabarbar', 'sernik_truskaw'],form:'O',price:170,lead:2,al:['gluten','jaja','mleko'],may:['soja'],n:[209,10.3,19.9,16.6,9.2],f:[5,3,5,3,1]},
- {id:'jagoda',name:'Sernik z borówkami',cat:'serniki',img:['sernik_jagoda'],form:'O',price:160,lead:2,al:['gluten','jaja','mleko'],may:[],n:[237,11.6,24.9,17.6,8.6],f:[3,3,5,3,1]},
- {id:'borowka',name:'Sernik z borówkami i kruszonką',cat:'serniki',img:['sernik_borowka'],form:'O',price:160,lead:2,line:'Kruchy spód, borówki zapieczone w twarogu i maślana kruszonka.',layers:['Kruchy spód','Borówki','Sernik pieczony','Kruszonka maślana'],al:['gluten','jaja','mleko'],may:[],n:[252,11.2,28.3,15.7,9.7],f:[3,2,4,3,1]},
- {id:'pomaranczowy',name:'Sernik pomarańczowy',cat:'serniki',img:[],form:'O',price:160,lead:2,al:['gluten','jaja','mleko','soja'],may:[],n:[298,19.3,20.4,15.6,10.4],f:[4,3,5,3,1]},
- {id:'baskijski_owoce',name:'Sernik baskijski z owocami lub pistacjowy',cat:'serniki',img:[],form:'O',price:180,lead:2},
- {id:'baskijski',name:'Sernik baskijski',cat:'serniki',img:[],form:'O',price:160,lead:2},
- {id:'krolewski',name:'Sernik królewski',cat:'serniki',img:[],form:'M',price:150,lead:2},
- {id:'skubany',name:'Sernik skubany',cat:'serniki',img:['skubany'],form:'M',price:150,lead:2},
- {id:'gotowany',name:'Sernik gotowany',cat:'serniki',img:[],form:'M',price:150,lead:2},
- {id:'rosa',name:'Sernik rosa',cat:'serniki',img:['sernik_rosa'],form:'M',price:150,lead:2},
- {id:'seromakowiec',name:'Seromakowiec',cat:'serniki',img:[],form:'M',price:150,lead:2,al:['gluten','jaja','mleko'],may:['siarczyny'],n:[353,17,39,26,11],f:[3,2,3,4,2]},
- {id:'pszczolka',name:'Pszczółka',cat:'ciasta',img:['pszczolka2', 'pszczolka'],form:'M',price:150,lead:2,line:'Kakaowy biszkopt, lekki mus śmietankowo-serowy i galaretka z brzoskwini.',layers:['Biszkopt kakaowy','Mus śmietankowo-serowy','Galaretka brzoskwiniowa'],al:['gluten','jaja','mleko','orzechy'],may:['soja'],n:[178,8.2,18.3,15.9,7.7],f:[3,2,5,2,2]},
- {id:'malinowa',name:'Malinowa chmurka',cat:'ciasta',img:['malinowa'],form:'M',price:170,lead:2,line:'Kruchy spód, maliny w galaretce, krem śmietankowy i chrupiąca beza.',layers:['Kruchy spód','Maliny w galaretce','Krem śmietankowy','Beza'],al:['gluten','jaja','mleko','orzechy'],may:[],n:[205,11.4,23.3,18.1,2.7],f:[4,4,3,3,1]},
- {id:'szarlotka',name:'Szarlotka pod pierzynką',cat:'ciasta',img:['szarlotka'],form:'M',price:130,lead:2,al:['gluten','jaja','mleko'],may:[],n:[300,14.2,39.3,19.7,4.1],f:[4,3,2,3,1]},
- {id:'plesniak',name:'Pleśniak',cat:'ciasta',img:['plesniak'],form:'M',price:120,lead:2,al:['gluten','jaja','mleko'],may:[],n:[392,15.4,56.0,28.0,6.4],f:[5,2,1,4,3]},
- {id:'lesny',name:'Leśny mech',cat:'ciasta',img:[],form:'M',price:150,lead:2,al:['gluten','jaja','mleko'],may:[],n:[302,18.4,30.2,16.3,4.5],f:[3,2,4,2,1]},
- {id:'tarta',name:'Tarta cytrynowa',cat:'ciasta',img:[],form:'O',price:150,lead:2,al:['gluten','jaja','mleko'],may:[],n:[322,14,45,28,4],f:[4,5,3,4,1]},
- {id:'galaretka',name:'Galaretkowiec witraż',cat:'ciasta',img:['galaretka'],form:'O',price:100,lead:1,line:'Kolorowe kostki galaretki zatopione w waniliowym serku.',layers:['Waniliowy serek','Kostki galaretek owocowych'],al:['mleko'],may:[],n:[108,1.6,19.9,19.6,3.4],f:[4,2,4,2,1]},
- {id:'mini',name:'Deserek miniserniczek mango',cat:'desery',img:['deserek'],form:'P',price:10,lead:1,al:['gluten','mleko'],may:[],n:[161,6.5,19.8,15.7,6.1],f:[4,3,4,2,1],g:115},
- {id:'pcmango',name:'Deserek panna cotta mango',cat:'desery',img:['panna_cotta'],form:'P',price:10,lead:1},
- {id:'pctruskawka',name:'Deserek panna cotta truskawka',cat:'desery',img:[],form:'P',price:10,lead:1},
- {id:'princessa',name:'Deserek princessa',cat:'desery',img:['princessa'],form:'P',price:10,lead:1,al:['gluten','mleko'],may:['soja'],n:[418,30.7,29.0,23.1,5.4],f:[5,1,5,2,1],g:115},
+ {id:'brzoskwinia',name:'Sernik z brzoskwiniami',cat:'serniki',img:['sernik_brzoskw'],form:'M',price:140,lead:3,line:'Sernik z kawałkami brzoskwini pod puszystą bezą i kruszonką.',layers:['Kruchy spód','Sernik z brzoskwinią','Beza','Kruszonka'],al:['gluten','jaja','mleko'],may:[],n:[289,13,35,20,8],f:[4,2,3,2,1]},
+ {id:'borowka',name:'Sernik z borówkami i kruszonką',cat:'serniki',img:['sernik_borowka'],form:'O',price:160,lead:3,line:'Kruchy spód, borówki zapieczone w twarogu i maślana kruszonka.',layers:['Kruchy spód','Borówki','Sernik pieczony','Kruszonka maślana'],al:['gluten','jaja','mleko'],may:[],n:[252,11.2,28.3,15.7,9.7],f:[3,2,4,3,1]},
+ {id:'pomaranczowy',name:'Sernik pomarańczowy',cat:'serniki',img:[],form:'O',price:160,lead:3,al:['gluten','jaja','mleko','soja'],may:[],n:[298,19.3,20.4,15.6,10.4],f:[4,3,5,3,1]},
+ {id:'baskijski',name:'Sernik baskijski',cat:'serniki',img:[],form:'O',price:160,lead:3},
+ {id:'krolewski',name:'Sernik królewski',cat:'serniki',img:[],form:'M',price:150,lead:3},
+ {id:'skubany',name:'Sernik skubany',cat:'serniki',img:['skubany'],form:'M',price:150,lead:3},
+ {id:'gotowany',name:'Sernik gotowany',cat:'serniki',img:[],form:'M',price:150,lead:3},
+ {id:'rosa',name:'Sernik rosa',cat:'serniki',img:['sernik_rosa'],form:'M',price:150,lead:3},
+ {id:'seromakowiec',name:'Seromakowiec',cat:'serniki',img:[],form:'M',price:150,lead:3,al:['gluten','jaja','mleko'],may:['siarczyny'],n:[353,17,39,26,11],f:[3,2,3,4,2]},
+ {id:'pszczolka',name:'Pszczółka',cat:'ciasta',img:['pszczolka2', 'pszczolka'],form:'M',price:150,lead:3,line:'Kakaowy biszkopt, lekki mus śmietankowo-serowy i galaretka z brzoskwini.',layers:['Biszkopt kakaowy','Mus śmietankowo-serowy','Galaretka brzoskwiniowa'],al:['gluten','jaja','mleko','orzechy'],may:['soja'],n:[178,8.2,18.3,15.9,7.7],f:[3,2,5,2,2]},
+ {id:'malinowa',name:'Malinowa chmurka',cat:'ciasta',img:['malinowa'],form:'M',price:170,lead:3,line:'Kruchy spód, maliny w galaretce, krem śmietankowy i chrupiąca beza.',layers:['Kruchy spód','Maliny w galaretce','Krem śmietankowy','Beza'],al:['gluten','jaja','mleko','orzechy'],may:[],n:[205,11.4,23.3,18.1,2.7],f:[4,4,3,3,1]},
+ {id:'jagoda',name:'Kruche z owocami i bezą',cat:'ciasta',img:['sernik_jagoda'],form:'O',price:160,lead:3},
+ {id:'szarlotka',name:'Szarlotka pod pierzynką',cat:'ciasta',img:['szarlotka'],form:'M',price:130,lead:3,al:['gluten','jaja','mleko'],may:[],n:[300,14.2,39.3,19.7,4.1],f:[4,3,2,3,1]},
+ {id:'plesniak',name:'Pleśniak',cat:'ciasta',img:['plesniak'],form:'M',price:120,lead:3,al:['gluten','jaja','mleko'],may:[],n:[392,15.4,56.0,28.0,6.4],f:[5,2,1,4,3]},
+ {id:'lesny',name:'Leśny mech',cat:'ciasta',img:[],form:'M',price:150,lead:3,al:['gluten','jaja','mleko'],may:[],n:[302,18.4,30.2,16.3,4.5],f:[3,2,4,2,1]},
+ {id:'tarta',name:'Tarta cytrynowa',cat:'ciasta',img:[],form:'O',price:150,lead:3,al:['gluten','jaja','mleko'],may:[],n:[322,14,45,28,4],f:[4,5,3,4,1]},
+ {id:'galaretka',name:'Galaretkowiec witraż',cat:'ciasta',img:['galaretka'],form:'O',price:100,lead:3,line:'Kolorowe kostki galaretki zatopione w waniliowym serku.',layers:['Waniliowy serek','Kostki galaretek owocowych'],al:['mleko'],may:[],n:[108,1.6,19.9,19.6,3.4],f:[4,2,4,2,1]},
+ {id:'mini',name:'Deserek miniserniczek mango',cat:'desery',img:['deserek'],form:'P',price:10,lead:3,al:['gluten','mleko'],may:[],n:[161,6.5,19.8,15.7,6.1],f:[4,3,4,2,1],g:115},
+ {id:'pcmango',name:'Deserek panna cotta mango',cat:'desery',img:['panna_cotta'],form:'P',price:10,lead:3},
+ {id:'pctruskawka',name:'Deserek panna cotta truskawka',cat:'desery',img:[],form:'P',price:10,lead:3},
+ {id:'princessa',name:'Deserek princessa',cat:'desery',img:['princessa'],form:'P',price:10,lead:3,al:['gluten','mleko'],may:['soja'],n:[418,30.7,29.0,23.1,5.4],f:[5,1,5,2,1],g:115},
 ];
 const CATS = [['wszystkie','Wszystkie'],['serniki','Serniki'],['ciasta','Ciasta'],['desery','Desery']];
 const $ = s => document.querySelector(s);
@@ -636,7 +636,7 @@ function showToast(t){ $('#toastTxt').textContent = t; $('#toast').classList.add
 function hideToast(){ $('#toast').classList.remove('on'); }
 
 /* ---------- availability (example data) ---------- */
-const CUTOFF = 14;
+const CUTOFF = 20;
 const CFG = window.USTAWIENIA || {};
 function blockedReason(d){ const k = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); const b = (CFG.blokady||[]).find(x => k>=x.od && k<=(x.do||x.od)); return b ? (b.powod||'Termin niedostępny') : ''; }
 function dayInfo(off, lead){
@@ -646,7 +646,6 @@ function dayInfo(off, lead){
   let st = 'free', left = [0,1,2,4,5,6,3][k];
   if(blockedReason(d)) st = 'blocked';
   else if(off < earliest) st = 'early';
-  else if(d.getDay()===0 || d.getDay()===1) st = 'closed';
   else if(left===0) st = 'full';
   else if(left<=2) st = 'last';
   return {d, st, left};
@@ -655,9 +654,9 @@ function firstFree(lead){
   for(let i=0;i<30;i++){ const x = dayInfo(i,lead); if(x.st==='free'||x.st==='last') return `${WD[x.d.getDay()]}. ${dd(x.d)}`; }
   return '—';
 }
-$('#nextFree').textContent = `Najbliższy termin: ${firstFree(2)}`;
-$('#nextFree2').textContent = `Najbliższy termin dla ciast: ${firstFree(2)}`;
-const SLOTS = Array.from({length:16},(_,i)=>`${String(10+Math.floor(i/2)).padStart(2,'0')}:${i%2?'30':'00'}`);
+$('#nextFree').textContent = `Najbliższy termin: ${firstFree(3)}`;
+$('#nextFree2').textContent = `Najbliższy termin: ${firstFree(3)}`;
+function slotsFor(d){ const wd = d.getDay(), st = (wd>=1&&wd<=5) ? 16 : 10; return Array.from({length:(20-st)*2},(_,i)=>`${String(st+Math.floor(i/2)).padStart(2,'0')}:${i%2?'30':'00'}`); }
 function slotFree(d,i,st){ const h = (d.getDate()*31 + i*17 + d.getMonth()*5) % (st==='last'?3:5); return h!==0; }
 
 let tip = {};
@@ -701,8 +700,8 @@ function renderCart(){
       <div class="dates"><div><span class="mono">Data zamówienia</span><b>${WD[new Date().getDay()]}. ${dd(new Date())}</b></div><div><span class="mono">Data odbioru</span><b>${selDay!==null?`${WD[days[selDay].d.getDay()]}. ${dd(days[selDay].d)}`:'wybierz w kalendarzu'}</b></div></div>
       ${calHTML(days)}
       <div class="legend"><span><i style="background:var(--pistache)"></i>wolne</span><span><i style="background:var(--accent)"></i>ostatnie okna</span><span>przekreślone — pełne</span><span>kreskowane — termin niedostępny</span></div>
-      <p class="why">${longest.name} potrzebuje ${leadTxt(lead)}, dlatego najwcześniejszy odbiór to ${firstFree(lead)}. Zamówienia złożone po 14:00 liczymy od następnego dnia.</p></div>
-    ${selDay!==null?`<div class="blk"><h4>Godzina odbioru · ${WDL[days[selDay].d.getDay()]} ${dd(days[selDay].d)}</h4><div class="slots" role="group" aria-label="Godzina odbioru">${SLOTS.map((s,i)=>{ const ok = slotFree(days[selDay].d,i,days[selDay].st); return `<button class="slot" type="button" id="sl-${i}" data-slot="${s}" ${ok?'':'disabled'} aria-pressed="${selSlot===s}">${s}</button>`; }).join('')}</div></div>`:''}
+      <p class="why">${longest.name} potrzebuje ${leadTxt(lead)}, dlatego najwcześniejszy odbiór to ${firstFree(lead)}. Zamówienia złożone po ${CUTOFF}:00 liczymy od następnego dnia.</p></div>
+    ${selDay!==null?`<div class="blk"><h4>Godzina odbioru · ${WDL[days[selDay].d.getDay()]} ${dd(days[selDay].d)}</h4><div class="slots" role="group" aria-label="Godzina odbioru">${slotsFor(days[selDay].d).map((s,i)=>{ const ok = slotFree(days[selDay].d,i,days[selDay].st); return `<button class="slot" type="button" id="sl-${i}" data-slot="${s}" ${ok?'':'disabled'} aria-pressed="${selSlot===s}">${s}</button>`; }).join('')}</div><p class="why">Godzinę odbioru ustalamy z Tobą — potwierdzimy ją telefonicznie.</p></div>`:''}
     <div class="blk"><h4>Dane do zamówienia</h4><div class="two"><div class="fld"><label for="fName">Imię i nazwisko</label><input id="fName" autocomplete="name"></div><div class="fld"><label for="fTel">Telefon</label><input id="fTel" type="tel" autocomplete="tel" inputmode="tel"></div></div></div>`;
   const d = selDay!==null ? days[selDay].d : null;
   foot.innerHTML = `<div class="sum"><span>Razem (płatność przy odbiorze lub BLIK)</span><b>${zl(sum)}</b></div><p class="err" id="err"></p>
